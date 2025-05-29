@@ -35,7 +35,7 @@ jobs:
         username: ${{ secrets.EMAIL_USER}}
         password: ${{ secrets.EMAIL_PASS}}
         subject: Build Success ✅
-        to: your.email@example.com
+        to: sahildhiman1389@gmail.com
         from: ${{ secrets.EMAIL_USER}}
         body: |
           🎉 CI build and tests completed successfully!
