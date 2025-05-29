@@ -26,6 +26,5 @@ jobs:
     - name: Run tests
       run: mvn test
 
-    - name: Send success email
-      if: success()
+
      
