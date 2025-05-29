@@ -38,5 +38,5 @@ jobs:
         password: ${{ secrets.EMAIL_PASS }}
         subject: "✅ Build Passed: ${{ github.repository }}"
         body: "Your Java CI build and tests passed successfully!"
-        to: your.email@example.com
+        to: sahildhiman1389@gmail.com
         from: GitHub Actions CI
