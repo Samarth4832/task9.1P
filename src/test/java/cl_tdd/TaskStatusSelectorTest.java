@@ -5,26 +5,39 @@ import org.junit.Test;
 
 public class TaskStatusSelectorTest {
 
-    @Test
-    public void testChoice1ReturnsWorkingOnIt() {
-        String result = TaskStatusSelector.getStatusByChoice(1);
-        Assert.assertEquals("Working On It", result);
+	@Test
+    public void testGetTaskStatus_NotStarted() {
+        String status = TaskManager.getTaskStatus("TASK001");
+        Assert.assertEquals("Not Started", status);
     }
 
     @Test
-    public void testChoice2ReturnsNeedHelp() {
-        String result = TaskStatusSelector.getStatusByChoice(2);
-        Assert.assertEquals("Need Help", result);
+    public void testGetTaskStatus_InProgress() {
+        String status = TaskManager.getTaskStatus("TASK002");
+        Assert.assertEquals("In Progress", status);
     }
 
     @Test
-    public void testChoice3ReturnsReadyForFeedback() {
-        String result = TaskStatusSelector.getStatusByChoice(3);
-        Assert.assertEquals("Ready for Feedback", result);
+    public void testGetTaskStatus_Submitted() {
+        String status = TaskManager.getTaskStatus("TASK003");
+        Assert.assertEquals("Submitted", status);
     }
 
-    @Test(expected = IllegalArgumentException.class)
-    public void testInvalidChoiceThrowsException() {
-        TaskStatusSelector.getStatusByChoice(5); // Invalid choice
+    @Test
+    public void testGetTaskStatus_FeedbackReceived() {
+        String status = TaskManager.getTaskStatus("TASK004");
+        Assert.assertEquals("Feedback Received", status);
+    }
+
+    @Test
+    public void testGetTaskStatus_InvalidTaskId() {
+        String status = TaskManager.getTaskStatus("INVALID123");
+        Assert.assertEquals("Invalid Task ID", status);
+    }
+
+    @Test
+    public void testGetTaskStatus_NullTaskId() {
+        String status = TaskManager.getTaskStatus(null);
+        Assert.assertEquals("Invalid Task ID", status);
     }
 }
